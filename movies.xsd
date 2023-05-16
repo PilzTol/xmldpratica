@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Movies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Movie" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="Title">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="runtime" type="xs:integer"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Genre"/>
+                            <xs:element name="Director">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Name">
+                                            <xs:complexType>
+                                                <xs:all>
+                                                    <xs:element name="First" type="xs:string"/>
+                                                    <xs:element name="Last" type="xs:string"/>
+                                                </xs:all>
+                                                <xs:attribute name="highratedmovie" type="xs:string"></xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Studio"/>
+                            <xs:element name="Year">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:positiveInteger">
+                                        <xs:totalDigits value="4" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:all>
+                        <xs:attribute name="rating" type="xs:string" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
